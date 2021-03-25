@@ -68,11 +68,11 @@ def handle_event(block_hash):
     elif amount_out[1] < price_ETH_stored * 9999 / 10000:
         print("open hedge position")
         #Check if asset balance > amount mint
+        amount_asset = contract_Hedgehog.functions.calculateAssetIn(amount).call()
         balance_asset = contract_WETH.functions.balanceOf(pbk).call()
         print('balance asset', balance_asset)
-        if balance_asset > amount:
+        if balance_asset > amount_asset:
             #Create signed transaction for infura
-            amount_asset = contract_Hedgehog.functions.calculateAssetIn(amount).call()
             nonce = web3.eth.getTransactionCount(web3.toChecksumAddress(pbk))
             txn = contract_Hedgehog.functions.deposit(amount, amount_asset).buildTransaction({'gas': 300000,'nonce': nonce})
             signed_txn = web3.eth.account.signTransaction(txn, pvk)
