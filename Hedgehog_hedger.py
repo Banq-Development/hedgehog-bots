@@ -52,7 +52,6 @@ def handle_event(block_hash):
     # Add buy logic here - current example is remove a hedge position on per block price positive change ETH/DAI > 0.01%
     if amount_out[1] > price_ETH_stored * 10001 / 10000:
         print("close hedge position")
-
         #Check if hAsset balance > amount burn
         balance_hAsset = contract_Hedgehog.functions.balanceOf(pbk).call()
         print('balance hasset', balance_hAsset)
