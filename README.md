@@ -10,10 +10,9 @@ This bot contains an example implementation that opens a hedge position if the p
 
 ## Customize
 To use your own hedging strategy customize the bot file hedgehog_hedger.py:
-	1. Enter your infura key 
-	2. Add your account info
-	  	IMPORTANT: approve the hedgehog contract for the public key used
-	3. Adjust the logic under handle_event() to use your own hedging strategy
+1. Enter your infura key 
+2. Add your account info. IMPORTANT: approve the hedgehog contract for the public key used
+4. Adjust the logic under handle_event() to use your own hedging strategy
 
 ## Run
 Runs like any python script.
